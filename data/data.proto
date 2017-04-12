@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package pack;
+
+message ManyStrs {
+  repeated string strs = 1;
+}
+
+message ManyInt32s {
+  repeated int32 int32s = 1 [packed = true];
+}
