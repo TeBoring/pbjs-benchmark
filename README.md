@@ -1,2 +1,3 @@
-# protobuf-js-bench
+# pbjs-benchmark
+
 Benchmark Protobuf JS Libraries
