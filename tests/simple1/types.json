@@ -17,6 +17,16 @@
         "float": {
           "type": "float",
           "id": 4
+        },
+        "nums": {
+          "rule": "repeated",
+          "type": "int32",
+          "id": 5
+        },
+        "strs": {
+          "rule": "repeated",
+          "type": "string",
+          "id": 6
         }
       },
       "nested": {
