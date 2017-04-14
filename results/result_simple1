@@ -1,0 +1,78 @@
+benchmarking decoding performance ...
+
+google-binary-optimized x 708,476 ops/sec ±0.71% (91 runs sampled)
+google-binary-unoptimized x 302,636 ops/sec ±0.87% (92 runs sampled)
+google-text-optimized x 901,621 ops/sec ±0.87% (92 runs sampled)
+protobuf.js-reflect x 804,112 ops/sec ±0.51% (89 runs sampled)
+protobuf.js-reflect-Uint8Array x 567,413 ops/sec ±1.34% (88 runs sampled)
+protobuf.js-static x 783,347 ops/sec ±0.81% (93 runs sampled)
+JSON-string x 392,803 ops/sec ±1.47% (90 runs sampled)
+
+  google-text-optimized was fastest
+    protobuf.js-reflect was 10.5% ops/sec slower (factor 1.12)
+     protobuf.js-static was 13.1% ops/sec slower (factor 1.15)
+google-binary-optimized was 21.3% ops/sec slower (factor 1.27)
+protobuf.js-reflect-Uint8Array was 37.4% ops/sec slower (factor 1.60)
+            JSON-string was 56.7% ops/sec slower (factor 2.31)
+google-binary-unoptimized was 66.4% ops/sec slower (factor 2.98)
+
+
+benchmarking encoding performance ...
+
+google-binary-optimized x 259,409 ops/sec ±1.11% (90 runs sampled)
+google-binary-unoptimized x 129,101 ops/sec ±1.73% (92 runs sampled)
+google-text-optimized x 280,917 ops/sec ±1.09% (94 runs sampled)
+protobuf.js-reflect x 774,917 ops/sec ±1.39% (88 runs sampled)
+protobuf.js-static x 827,503 ops/sec ±1.51% (89 runs sampled)
+JSON-string x 456,061 ops/sec ±0.72% (94 runs sampled)
+
+     protobuf.js-static was fastest
+    protobuf.js-reflect was 6.2% ops/sec slower (factor 1.07)
+            JSON-string was 44.5% ops/sec slower (factor 1.80)
+  google-text-optimized was 65.9% ops/sec slower (factor 2.93)
+google-binary-optimized was 68.5% ops/sec slower (factor 3.18)
+google-binary-unoptimized was 84.4% ops/sec slower (factor 6.42)
+
+
+---------------------------------------------------------------------------
+
+
+Binary payload size = 79
+Jspb-Text payload size = 125
+JSON payload size = 255
+benchmarking decoding performance
+
+Navigated to file:///Users/updogliu/Work/fight/run.html
+
+google-binary-optimized x 646,331 ops/sec ±4.07% (58 runs sampled)
+google-binary-unoptimized x 298,089 ops/sec ±2.13% (61 runs sampled)
+google-text-optimized x 1,055,488 ops/sec ±2.05% (62 runs sampled)
+protobuf.js-reflect x 491,847 ops/sec ±1.77% (62 runs sampled)
+protobuf.js-reflect-Uint8Array x 511,708 ops/sec ±1.89% (62 runs sampled)
+protobuf.js-static x 503,987 ops/sec ±2.28% (63 runs sampled)
+JSON-string x 403,465 ops/sec ±2.77% (56 runs sampled)
+
+google-text-optimized was fastest
+google-binary-optimized was 40.0% ops/sec slower (factor 1.67)
+protobuf.js-reflect-Uint8Array was 51.4% ops/sec slower (factor 2.06)
+protobuf.js-static was 52.4% ops/sec slower (factor 2.10)
+protobuf.js-reflect was 53.3% ops/sec slower (factor 2.14)
+JSON-string was 62.0% ops/sec slower (factor 2.63)
+google-binary-unoptimized was 71.8% ops/sec slower (factor 3.54)
+
+
+benchmarking encoding performance
+
+google-binary-optimized x 378,700 ops/sec ±3.54% (61 runs sampled)
+google-binary-unoptimized x 152,221 ops/sec ±3.58% (58 runs sampled)
+google-text-optimized x 269,083 ops/sec ±2.38% (61 runs sampled)
+protobuf.js-reflect x 174,347 ops/sec ±1.27% (62 runs sampled)
+protobuf.js-static x 177,109 ops/sec ±1.47% (62 runs sampled)
+JSON-string x 435,974 ops/sec ±2.73% (60 runs sampled)
+
+JSON-string was fastest
+google-binary-optimized was 13.8% ops/sec slower (factor 1.16)
+google-text-optimized was 38.1% ops/sec slower (factor 1.61)
+protobuf.js-static was 58.9% ops/sec slower (factor 2.43)
+protobuf.js-reflect was 59.4% ops/sec slower (factor 2.47)
+google-binary-unoptimized was 65.4% ops/sec slower (factor 2.89)

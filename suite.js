@@ -8,7 +8,7 @@ if (typeof(window) == 'object') {
   window.Benchmark = benchmark;
 }
 
-var padSize = 35;
+var padSize = 34;
 
 function newSuite(name) {
   var benches = [];

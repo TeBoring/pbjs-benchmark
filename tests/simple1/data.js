@@ -13,7 +13,11 @@ var typesJson = require('./types.json');
 var root = pbjs.Root.fromJSON(typesJson);
 var pbjsTest = root.resolveAll().lookup("Test");
 
+// TODO: take the payload type as a command-line flag.
 var pbjsJson = require('./payload.json');
+//var pbjsJson = require('./payload_strs.json');
+//var pbjsJson = require('./payload_ints.json');
+
 var pbjsJsonStr = JSON.stringify(pbjsJson);
 
 var binaryBuf = pbjsTest.encode(pbjsJson).finish();
