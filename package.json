@@ -4,7 +4,8 @@
   "description": "Benchmark Protobuf JS libraries in browsers and node.",
   "scripts": {
     "bench": "node run.js",
-    "start": "node run.js"
+    "start": "node run.js",
+    "bundle": "browserify run.js -o bundle.js"
   },
   "author": "updogliu <updogliu@gmail.com>",
   "license": "ISC",
