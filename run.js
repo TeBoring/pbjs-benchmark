@@ -9,13 +9,14 @@ var pbjsTestReflect = root.resolveAll().lookup("Test");
 var pbjsTestStatic = require('./tests/simple1/pbjsStatic').Test;
 
 const jspbTestOptimized = require('./tests/simple1/jspbTestOptimized');
-const jspbTestUnoptimized = require('./tests/simple1/jspbTestUnoptimized').Test;
+const jspbTestUnoptimized = require('./tests/simple1/types_pb').Test;
 
 const data = require('./tests/simple1/data');
 
 console.log('Binary payload size =', data.binaryU8.byteLength);
 console.log('Jspb-Text payload size =', data.jspbText.length);
 console.log('JSON payload size =', data.pbjsJsonStr.length);
+
 
 newSuite("decoding")
   // google-protobuf-js does not work with Buffer

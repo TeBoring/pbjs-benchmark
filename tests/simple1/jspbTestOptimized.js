@@ -685,7 +685,7 @@ module.exports.serializeBinaryTest = function(a) {
   b.c = [a];
   return a
 };
-module.exports.deserializeJspbTest = function(a) {
+module.exports.deserializeTextTest = function(a) {
   return new W(da(a))
 };
 module.exports.serializeTextTest = function(a) {

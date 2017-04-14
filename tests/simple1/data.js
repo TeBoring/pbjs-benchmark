@@ -6,7 +6,7 @@
 
 const pbjs = require('protobufjs');
 const jspbTestOptimized = require('./jspbTestOptimized');
-const jspbTestUnoptimized = require('./jspbTestUnoptimized').Test;
+const jspbTestUnoptimized = require('./types_pb').Test;
 
 
 var typesJson = require('./types.json');
