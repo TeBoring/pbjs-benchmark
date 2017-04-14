@@ -29862,44 +29862,34 @@ console.log('Binary payload size =', data.binaryU8.byteLength);
 console.log('Jspb-Text payload size =', data.jspbText.length);
 console.log('JSON payload size =', data.pbjsJsonStr.length);
 
-
-// newSuite("decoding")
-//   .add("protobuf.js-reflect-Buffer", function() {
-//     pbjsTestReflect.decode(data.binaryBuf);
-//   })
-//   .add("protobuf.js-reflect-Uint8Array", function() {
-//     pbjsTestReflect.decode(data.binaryU8);
-//   })
-//   .add("protobuf.js-static-Buffer", function() {
-//     pbjsTestStatic.decode(data.binaryBuf);
-//   })
-//   // google-protobuf-js does not work with Buffer
-//   .add("google-binary-optimized-Uint8Array", function() {
-//     jspbTestOptimized.deserializeBinaryTest(data.binaryU8);
-//   })
-//   .add("google-binary-unoptimized-Uint8Array", function() {
-//     jspbTestUnoptimized.deserializeBinary(data.binaryU8);
-//   })
-//   .add("google-text-optimized", function() {
-//     jspbTestOptimized.deserializeTextTest(data.jspbText);
-//   })
-//   .add("JSON-string", function() {
-//     JSON.parse(data.pbjsJsonStr);
-//   })
-//   .run();
-
-
-console.log('jspb:', jspbTestOptimized.serializeTextTest(data.jspbMsgOptimized));
-
-var jspbJson = '["Lorem ipsum dolor sit amet.",9000,[20161110,[649545084044315,1,-42],[[true,false,false,true,false,false,true],204.8]],0.25]';
-
-newSuite("encoding")
+newSuite("decoding")
+  // google-protobuf-js does not work with Buffer
+  .add("google-binary-optimized", function() {
+    jspbTestOptimized.deserializeBinaryTest(data.binaryU8);
+  })
+  .add("google-binary-unoptimized", function() {
+    jspbTestUnoptimized.deserializeBinary(data.binaryU8);
+  })
+  .add("google-text-optimized", function() {
+    jspbTestOptimized.deserializeTextTest(data.jspbText);
+  })
   .add("protobuf.js-reflect", function() {
-    pbjsTestReflect.encode(data.pbjsMsg).finish();
+    pbjsTestReflect.decode(data.binaryBuf);
+  })
+  // --- About 18% slower than "protobuf.js-reflect" in Node ---
+  .add("protobuf.js-reflect-Uint8Array", function() {
+    pbjsTestReflect.decode(data.binaryU8);
   })
   .add("protobuf.js-static", function() {
-    pbjsTestStatic.encode(data.pbjsMsg).finish();
+    pbjsTestStatic.decode(data.binaryBuf);
   })
+  .add("JSON-string", function() {
+    JSON.parse(data.pbjsJsonStr);
+  })
+  .run();
+
+
+newSuite("encoding")
   .add("google-binary-optimized", function() {
     jspbTestOptimized.serializeBinaryTest(data.jspbMsgOptimized);
   })
@@ -29909,8 +29899,11 @@ newSuite("encoding")
   .add("google-text-optimized", function() {
     jspbTestOptimized.serializeTextTest(data.jspbMsgOptimized);
   })
-  .add("google-text-JSON.stringify", function() {
-    JSON.stringify(jspbJson);
+  .add("protobuf.js-reflect", function() {
+    pbjsTestReflect.encode(data.pbjsMsg).finish();
+  })
+  .add("protobuf.js-static", function() {
+    pbjsTestStatic.encode(data.pbjsMsg).finish();
   })
   .add("JSON-string", function() {
     JSON.stringify(data.pbjsJson);
@@ -29928,7 +29921,7 @@ if (typeof(window) == 'object') {
   window.Benchmark = benchmark;
 }
 
-var padSize = 23;
+var padSize = 35;
 
 function newSuite(name) {
   var benches = [];
@@ -29959,7 +29952,7 @@ function newSuite(name) {
           console.log(
             chalk.white(pad(bench.name, padSize)) + " was " +
             chalk.red((percent * 100).toFixed(1) +
-                      "% ops/sec slower (factor " + (fastestHz / hz).toFixed(1) +
+                      "% ops/sec slower (factor " + (fastestHz / hz).toFixed(2) +
                       ")"));
         });
       }

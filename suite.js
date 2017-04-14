@@ -8,7 +8,7 @@ if (typeof(window) == 'object') {
   window.Benchmark = benchmark;
 }
 
-var padSize = 23;
+var padSize = 35;
 
 function newSuite(name) {
   var benches = [];
@@ -39,7 +39,7 @@ function newSuite(name) {
           console.log(
             chalk.white(pad(bench.name, padSize)) + " was " +
             chalk.red((percent * 100).toFixed(1) +
-                      "% ops/sec slower (factor " + (fastestHz / hz).toFixed(1) +
+                      "% ops/sec slower (factor " + (fastestHz / hz).toFixed(2) +
                       ")"));
         });
       }
