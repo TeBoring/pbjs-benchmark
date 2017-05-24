@@ -13,9 +13,12 @@ const jspbTestUnoptimized = require('./tests/simple1/types_pb').Test;
 
 const data = require('./tests/simple1/data');
 
-console.log('Binary payload size =', data.binaryU8.byteLength);
-console.log('Jspb-Text payload size =', data.jspbText.length);
-console.log('JSON payload size =', data.pbjsJsonStr.length);
+console.log('Payload size (byte):');
+console.log('\t   Binary:', data.binaryU8.byteLength);
+console.log('\t   Base64:', Math.ceil(data.binaryU8.byteLength / 3 * 4));
+console.log('\tJspb-Text:', data.jspbText.length);
+console.log('\t     JSON:', data.pbjsJsonStr.length);
+console.log();
 
 
 newSuite("decoding")
@@ -32,7 +35,7 @@ newSuite("decoding")
   .add("protobuf.js-reflect", function() {
     pbjsTestReflect.decode(data.binaryBuf);
   })
-  // --- About 18% slower than "protobuf.js-reflect" in Node ---
+  // About 18% slower than "protobuf.js-reflect" in Node
   .add("protobuf.js-reflect-Uint8Array", function() {
     pbjsTestReflect.decode(data.binaryU8);
   })
