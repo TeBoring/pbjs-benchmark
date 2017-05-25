@@ -21,11 +21,11 @@ to .gitignore file.
 2. sudo pbjs  # It will install its dependencies
 
 ## Generate pbjs type JSON and static JS
-pbjs -t json -o pbjsTypes.json types.proto
-pbjs -t static-module -o pbjsStatic.js pbjsTypes.json
+1. pbjs -t json -o pbjsTypes.json types.proto
+2. pbjs -t static-module -o pbjsStatic.js pbjsTypes.json
 
 
 # protoc CLI:
 ## Generate Google protobuf/js JS code for Node
-protoc -I=. --js_out=import_style=commonjs,binary:. types.proto
-mv types_pb.js googUnopt.js
+1. protoc -I=. --js_out=import_style=commonjs,binary:. types.proto
+2. mv types_pb.js googUnopt.js
