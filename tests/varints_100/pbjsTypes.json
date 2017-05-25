@@ -1,0 +1,13 @@
+{
+  "nested": {
+    "Msg": {
+      "fields": {
+        "nums": {
+          "rule": "repeated",
+          "type": "int32",
+          "id": 5
+        }
+      }
+    }
+  }
+}
